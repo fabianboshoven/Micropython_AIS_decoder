@@ -18,3 +18,8 @@ Other functions in the code include:
     get_message_type(), get_repeat_indicator(), get_mmsi(), get_longitude(), get_latitude(), get_speed_over_ground(), get_rate_of_turn(), and trueHeading(): These functions extract specific pieces of information from the digits_list global variable.
 
 Overall, this code is used to decode AIS data. It can be used to receive information about vessel location, speed, and heading in a maritime environment.
+
+
+Note for displaying the data on the lcd i used this i2c lcd code :
+https://peppe8o.com/download/micropython/LCD/lcd_api.py
+https://peppe8o.com/download/micropython/LCD/i2c_lcd.py
