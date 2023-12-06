@@ -10,8 +10,8 @@ gc.collect()
 import network
 
 # Set up WiFi credentials
-WIFI_SSID = "Geendraad"
-WIFI_PASSWORD = "NEUSh00rn!"
+WIFI_SSID = ""
+WIFI_PASSWORD = ""
 
 # Connect to WiFi
 wlan = network.WLAN(network.STA_IF)
