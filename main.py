@@ -3,31 +3,22 @@ import AIS_Decoder
 
 import machine
 from machine import Pin, SoftI2C
-from lcd_api import LcdApi
-from i2c_lcd import I2cLcd
+
 from time import sleep
 
-I2C_ADDR = 0x27
-totalRows = 4
-totalColumns = 20
-i2c = machine.I2C(scl=Pin(5), sda=Pin(4), freq=10000)       #initializing the I2C method for ESP8266
 
-lcd = I2cLcd(i2c, I2C_ADDR, totalRows, totalColumns)
+
+
 
 # Set up constants for the server
 LOCAL_IP = "192.168.1.215"
 LOCAL_PORT = 10110
 BUFFER_SIZE = 1024
 
-# Set up the LCD
 
 
-# Clear the display
-lcd.clear()
-lcd.putstr("AIS decoder v0.9" + "\n")
-lcd.putstr("made by fabian" + "\n")
-lcd.putstr("UDP server up" + "\n")
-lcd.putstr("listening for ais " + "\n")
+
+
 
 
 # Create the UDP socket
@@ -61,14 +52,7 @@ while True:
         print(AIS_Decoder.get_repeat_indicator())
         print("mmsi :")
         print(AIS_Decoder.get_mmsi())
-        if AIS_Decoder.get_mmsi() != mmsi:
-            lcd.clear()
-            lcd.putstr("mmsi : " + str(AIS_Decoder.get_mmsi()) + "\n")
-            lcd.putstr("speed : " + str(AIS_Decoder.get_speed_over_ground()) + "\n")
-            lcd.putstr("heading : "+ str(AIS_Decoder.trueHeading()) + "\n")
-            lcd.putstr("rot : "+ str(AIS_Decoder.get_rate_of_turn()) + "\n")
-            
-            mmsi = AIS_Decoder.get_mmsi()
+        
         print("longitude :")
         print(AIS_Decoder.get_longitude())
         print("latitude :")
@@ -87,4 +71,5 @@ while True:
         # Print the exception message and close the socket
         print(e)
         UDPServerSocket.close()
+
 
